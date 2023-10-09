@@ -32,11 +32,14 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 # CMAKE_PREFIX_PATH  By default this is empty. It is intended to be set by
 # the project. You can use CMakeLists.txt as it is or set up the environment
 # variable CMAKE_PREFIX_PATH.
+
+### if ("${CMAKE_PREFIX_PATH}" STREQUAL "")
+
 #
 #   Linux
 #
 if (${CMAKE_SYSTEM_NAME} MATCHES "Linux")
-    set(CMAKE_PREFIX_PATH "~/Qt/6.2.2/gcc_64/")
+    set(CMAKE_PREFIX_PATH "~/Qt/6.5.3/gcc_64/")
 endif()
 #
 #   $ cmake .. -G Ninja
@@ -80,6 +83,8 @@ endif()
 #            ${CMAKE_CURRENT_SOURCE_DIR}/path/to/libssl.so)
 #    endif()
 #endif()
+
+### endif()  # end of CMAKE_PREFIX_PATH setting
 
 
 add_definitions(-DGNU_gama_expat_1_1)  # if we use local copy of expat sources
