@@ -32,9 +32,13 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 # CMAKE_PREFIX_PATH  By default this is empty. It is intended to be set by
 # the project. You can use CMakeLists.txt as it is or set up the environment
 # variable CMAKE_PREFIX_PATH.
+#
+# example:
+#
+#   cmake .. -GNinja -DCMAKE_PREFIX_PATH=C:/Qt/6.2.2/msvc2019_64/
+#
 
-### if ("${CMAKE_PREFIX_PATH}" STREQUAL "")
-
+if (NOT DEFINED CMAKE_PREFIX_PATH)
 #
 #   Linux
 #
@@ -84,7 +88,9 @@ endif()
 #    endif()
 #endif()
 
-### endif()  # end of CMAKE_PREFIX_PATH setting
+endif()  # end of CMAKE_PREFIX_PATH setting
+#
+message("   -- Qgama cmake build CMAKE_PREFIX_PATH: " ${CMAKE_PREFIX_PATH})
 
 
 add_definitions(-DGNU_gama_expat_1_1)  # if we use local copy of expat sources
