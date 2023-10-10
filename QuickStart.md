@@ -18,16 +18,29 @@ Download and build
 ------------------
 
 Download source codes from git server and run the following commands
-
-    $ git clone git://git.sv.gnu.org/gama/qt.git  qgama    # explicit name
-    $ cd  qgama
-    $ git clone https://git.savannah.gnu.org/git/gama.git  # checkout a version if needed
-    $ export CMAKE_PREFIX_PATH=~/Qt/6.2.2/gcc_64/          # adjust as needed
-    $ mkdir build
-    $ cd build
-    $ cmake .. -GNinja
-    $ cmake --build .
-    $ ./qgama &
+(for example in Linux Terminal/Bash or Windows/PowerShell)
+````
+git clone git://git.sv.gnu.org/gama/qt.git  qgama        # explicit name
+cd  qgama
+git clone https://git.savannah.gnu.org/git/gama.git      # checkout a version if needed
+mkdir build
+cd build
+````
+Adjust as needed and select
+````
+cmake .. -GNinja -DCMAKE_PREFIX_PATH=~/Qt/6.2.2/gcc_64/         # Linux
+cmake .. -GNinja -DCMAKE_PREFIX_PATH=~C:/Qt/6.2.2/msvc2019_64/  # Windows
+````
+If the `CMAKE_PREFIX_PATH` is defined in the `CMakeLists.txt` then simply 
+run
+`````
+cmake .. -GNinja  # both Linux or Windows
+`````
+Finish the build and run `qgama`
+````
+cmake --build .
+./qgama &
+````
 
 How to build an example database
 --------------------------------
