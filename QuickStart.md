@@ -31,7 +31,11 @@ Adjust as needed and select
 cmake .. -GNinja -DCMAKE_PREFIX_PATH=~/Qt/6.2.2/gcc_64/         # Linux
 cmake .. -GNinja -DCMAKE_PREFIX_PATH=~C:/Qt/6.2.2/msvc2019_64/  # Windows
 ````
+<<<<<<< HEAD
 If the `CMAKE_PREFIX_PATH` is defined in the `CMakeLists.txt` then simply 
+=======
+If the `CMAKE_PREFIX_PATH` is defined in the `CMakeLists.txt` then simply
+>>>>>>> upstream/master
 run
 `````
 cmake .. -GNinja  # both Linux or Windows

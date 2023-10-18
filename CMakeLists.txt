@@ -43,7 +43,8 @@ if (NOT DEFINED CMAKE_PREFIX_PATH)
 #   Linux
 #
 if (${CMAKE_SYSTEM_NAME} MATCHES "Linux")
-    set(CMAKE_PREFIX_PATH "~/Qt/6.5.3/gcc_64/")
+  # set(CMAKE_PREFIX_PATH "~/Qt/6.5.3/gcc_64/")
+    set(CMAKE_PREFIX_PATH "~/Qt/6.6.0/gcc_64/lib/cmake")
 endif()
 #
 #   $ cmake .. -G Ninja

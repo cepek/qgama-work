@@ -17,6 +17,8 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
+#include <utility>
+
 #include "qgamacontrolpanel.h"
 
 #include <QMenu>
@@ -290,7 +292,7 @@ void QGamaControlPanel::closeEvent(QCloseEvent * event)
     {
         event->accept();
         QGamaHelp::get()->close();
-        for (const auto& p : qAsConst(localPluginsList)) p->close();
+        for (const auto& p : std::as_const(localPluginsList)) p->close();
     }
     else if (dialogCode == QMessageBox::YesAll)
     {
@@ -302,7 +304,7 @@ void QGamaControlPanel::closeEvent(QCloseEvent * event)
 
         event->accept();
         QGamaHelp::get()->close();
-        for (const auto& p : qAsConst(localPluginsList)) p->close();
+        for (const auto& p : std::as_const(localPluginsList)) p->close();
     }
     else
     {
@@ -447,6 +449,7 @@ void QGamaControlPanel::on_action_About_qgama_triggered()
                   QString(tr("Based on <a href='http://www.gnu.org/software/gama'>"
                              "GNU gama</a> version %1")
                          ).arg(GNU_gama::GNU_gama_version().c_str()) +
+                  "  and Qt " + QString(qVersion()) +
                   "</p>"
 
                   "<p>This program is free software: you can redistribute it and/or modify "
