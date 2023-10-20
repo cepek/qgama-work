@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.18)
 
-project(qgama LANGUAGES CXX VERSION "2.06")
+project(qgama LANGUAGES CXX VERSION "2.06.1")
 
 set(QGAMA_CONFIGURE_NAME      ${PROJECT_NAME})
 set(QGAMA_CONFIGURE_VERSION   ${PROJECT_VERSION})
@@ -43,8 +43,8 @@ if (NOT DEFINED CMAKE_PREFIX_PATH)
 #   Linux
 #
 if (${CMAKE_SYSTEM_NAME} MATCHES "Linux")
-  # set(CMAKE_PREFIX_PATH "~/Qt/6.5.3/gcc_64/")
-    set(CMAKE_PREFIX_PATH "~/Qt/6.6.0/gcc_64/lib/cmake")
+#   set(CMAKE_PREFIX_PATH "~/Qt/6.5.3/gcc_64/")
+    set(CMAKE_PREFIX_PATH "~/Qt/6.6.0/gcc_64/")
 endif()
 #
 #   $ cmake .. -G Ninja
@@ -54,7 +54,8 @@ endif()
 #   Windows
 #
 if (${CMAKE_SYSTEM_NAME} MATCHES "Windows")
-    set(CMAKE_PREFIX_PATH "C:/Qt/6.2.2/msvc2019_64/")
+#   set(CMAKE_PREFIX_PATH "C:/Qt/6.2.2/msvc2019_64/")
+    set(CMAKE_PREFIX_PATH "C:/Qt/6.6.0/msvc2019_64/")
 endif()
 #
 # On Windows you can build qgama either with QtCreator, Visual Studio

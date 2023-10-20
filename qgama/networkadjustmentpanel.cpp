@@ -18,6 +18,8 @@
   along with GNU Gama.  If not, see <http://www.gnu.org/licenses/>.
 */
 
+#include <utility>
+
 #include "networkadjustmentpanel.h"
 #include "selectconfiguration.h"
 #include "constants.h"
@@ -178,7 +180,7 @@ NetworkAdjustmentPanel::NetworkAdjustmentPanel(QString connectionName, QWidget *
         if (!map.empty())
         {
             menuTools->setEnabled(true);
-            for (auto i : qAsConst(map))
+            for (auto i : std::as_const(map))
             {
                 PluginAction<AdjustmentInterface>* action = new PluginAction<AdjustmentInterface>(this, i);
                 menuTools->addAction(action);
@@ -209,7 +211,7 @@ NetworkAdjustmentPanel::NetworkAdjustmentPanel(QString connectionName, QWidget *
 
 NetworkAdjustmentPanel::~NetworkAdjustmentPanel()
 {
-    for (auto w : qAsConst(localPluginsList)) delete w;
+    for (auto w : std::as_const(localPluginsList)) delete w;
     allNetworkAdjustmentPanelsList.removeOne(this);
 }
 
