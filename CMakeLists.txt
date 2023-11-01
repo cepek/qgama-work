@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.18)
 
-project(qgama LANGUAGES CXX VERSION "2.06.1")
+project(qgama LANGUAGES CXX VERSION "2.06.1.1")
 
 set(QGAMA_CONFIGURE_NAME      ${PROJECT_NAME})
 set(QGAMA_CONFIGURE_VERSION   ${PROJECT_VERSION})
@@ -171,6 +171,11 @@ else()
     $<TARGET_OBJECTS:libgama>
   )
 endif()
+
+# Set the WIN32 flag for Windows builds
+if (WIN32)
+    set_target_properties(qgama PROPERTIES WIN32_EXECUTABLE TRUE)
+endif (WIN32)
 
 target_link_libraries(qgama PRIVATE
   Qt6::Widgets Qt6::Sql Qt6::PrintSupport Qt6::SvgWidgets)

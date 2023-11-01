@@ -30,6 +30,7 @@ Makefile
 dox
 *.bak
 *.tar.gz
+*.json
 qgama/configure.h
 
 .idea
